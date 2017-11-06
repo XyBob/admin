@@ -1,0 +1,430 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+	<link href="__CSS__/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="__CSS__/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="__CSS__/animate.min.css" rel="stylesheet">
+    <link href="__CSS__/style.min.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>snake</h1>
+        <div class="error-desc">
+			<h3> author : NickBai </h3>
+			<h3> homepage : http://baiyf.com </h3>
+			<h3> email : 1902822973@qq.com </h3>
+        </div>
+    </div>
+    <script src="__JS__/jquery.min.js?v=2.1.4"></script>
+    <script src="__JS__/bootstrap.min.js?v=3.3.6"></script>
+</body>
+</html>-->
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 首页示例二</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/font-awesome/4.4.0/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <!-- Morris -->
+    <link href="__CSS__/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="__JS__/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__CSS__/style.min.css?v=4.1.0" rel="stylesheet">
+
+    <style type="text/css">.jqstooltip {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        visibility: hidden;
+        background: rgb(0, 0, 0) transparent;
+        background-color: rgba(0, 0, 0, 0.6);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+        white-space: nowrap;
+        padding: 5px;
+        border: 1px solid white;
+        z-index: 10000;
+    }
+
+    .jqsfield {
+        color: white;
+        font: 10px arial, san serif;
+        text-align: left;
+    }</style>
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>用户信息</h5>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" id="userInfoFrom" onsubmit="return false">
+                        <input type="hidden" name="userId" value="{$user_info.user_id}">
+
+                        <p>用户信息</p>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">用户ID：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="用户ID" class="form-control" value="{$user_info.user_id}"
+                                       readonly>
+                                <!-- <span class="help-block m-b-none">请输入您注册时所填的E-mail</span>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">账号：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="账号" class="form-control" name="account"
+                                       value="{$user_info.account}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">昵称：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="昵称" class="form-control" name="nickname"
+                                       value="{$user_info.nickname}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">签名：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="签名" class="form-control" name="autograph"
+                                       value="{$user_info.autograph}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">帐号类型：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="帐号类型" class="form-control" name="type"
+                                       value="{$user_info.type}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">等级：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="等级" class="form-control" name="rank"
+                                       value="{$user_info.rank}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">绑定支付宝：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="绑定支付宝" class="form-control" name="alipay"
+                                       value="{$user_info.alipay}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">注册时间：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="注册时间" class="form-control" name="reg_time"
+                                       value="{$user_info.reg_time}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">最近登录时间：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="最近登录时间" class="form-control" name="last_login_time"
+                                       value="{$user_info.last_login_time}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">注册IP：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="注册IP" class="form-control" value="{$user_info.reg_ip}"
+                                       readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">注册机器码：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="注册机器码" class="form-control" name="machine_code"
+                                       value="{$user_info.machine_code}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">备注：</label>
+                            <div class="col-sm-8">
+                            <textarea id="ccomment" name="comment" class="form-control" required="" aria-required="true"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-8">
+                                <button class="btn btn-sm btn-white" id="save1">保 存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>金币信息</h5>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" id="coinInfoFrom" onsubmit="return false">
+                        <input type="hidden" name="userId" value="{$user_info.user_id}">
+                        <p>用户金币信息</p>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">vip等级：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="vip等级" class="form-control" name="vip_rank"
+                                       value="{$user_info.vip_rank}">
+                                <!-- <span class="help-block m-b-none">请输入您注册时所填的E-mail</span>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">金币：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="金币" class="form-control" value="{$user_info.coin}" name="coin">
+                                <span class="help-block m-b-none">账户总金币，包括保险箱内的</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">总成绩：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="总成绩" class="form-control"
+                                       value="{$user_info.total_win}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">总充值：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="总充值" class="form-control"
+                                       value="{$user_info.total_recharge}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">总福利：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="总福利" class="form-control"
+                                       value="{$user_info.total_welfare}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">总抽水：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="总抽水" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">今日成绩：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="今日成绩" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">今日充值：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="今日充值" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">总局数：</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" placeholder="总局数" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">备注：</label>
+                            <div class="col-sm-8">
+                                <textarea id="" name="comment" class="form-control" required="" aria-required="true"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-8">
+                                <button class="btn btn-sm btn-white" id="save2">保 存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>相关链接</h5>
+
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <table class="table table-hover margin bottom">
+                                        <thead>
+                                        <tr>
+                                            <th>相关链接</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><a href="{:url('record/accountrecord', ['user_id' => $user_info.user_id])}">帐号记录链接</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="{:url('record/loginrecord', ['user_id' => $user_info.user_id])}">登录记录链接</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="{:url('record/gamerecord', ['user_id' => $user_info.user_id])}">游戏记录链接</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="{:url('record/rechargerecord', ['user_id' => $user_info.user_id])}">充值记录链接</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="{:url('record/exchange', ['user_id' => $user_info.user_id])}">兑换记录链接</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="__JS__/plugins/flot/jquery.flot1.js"></script>
+<script src="__JS__/plugins/peity/jquery.peity.min.js"></script>
+<script src="__JS__/content.min.js?v=1.0.0"></script>
+<script src="__JS__/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="__JS__/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="__JS__/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="__JS__/plugins/easypiechart/jquery.easypiechart.js"></script>
+<script src="__JS__/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="__JS__/plugins/layer/layer.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#save1').click(function () {
+            $.ajax({
+                url: "{:url('gameUser/edit')}",
+                type: 'post',
+                dataType: 'json',
+                data: $('#userInfoFrom').serialize(),
+                success: function (data) {
+                    layer.alert(data.msg, {title: '友情提示', icon: data.code==1?1:0, closeBtn: 0});
+                    return;
+                },
+                error: function () {
+                    return;
+                }
+
+            });
+            return;
+        });
+
+        $('#save2').click(function () {
+            $.ajax({
+                url: "{:url('gameUser/edit')}",
+                type: 'post',
+                dataType: 'json',
+                data: $('#coinInfoFrom').serialize(),
+                success: function (data) {
+                    layer.alert(data.msg, {title: '友情提示', icon: data.code==1?1:0, closeBtn: 0});
+                    return;
+                },
+                error: function () {
+                    return;
+                }
+
+            });
+            return;
+        });
+
+
+    });
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+
+<div class="jvectormap-label" style="left: 1532px; top: 959px; display: none;">Russia</div>
+</body>
+</html>
